@@ -10,7 +10,7 @@ module Lab where
 
 -- | The infinite list of ones.
 ones :: [Int]
-ones = undefined
+ones = 1:ones
 
 -- | An infinite list modelled after the Fibonacci numbers, but where the
 -- seed values are x and y. (Exponential time complexity!)
@@ -20,6 +20,6 @@ foos x y = x : y : zipWith (+) (foos x y) (tail (foos x y))
 -- | An infinite list modelled after the Fibonacci numbers, but where the
 -- seed values are x and y. (Linear time complexity if you do it right!)
 foos' :: Integer -> Integer -> [Integer]
-foos' x y = undefined
+foos' x y = fs where fs = x : y : zipWith (+) fs (tail fs)
 
 --------------------------------------------------------------------------------
